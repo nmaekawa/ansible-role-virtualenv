@@ -1,0 +1,27 @@
+---
+
+- name: ensure pip installed
+  apt:
+      pkg: python-pip
+      state: present
+
+- name: ensure virtualenv installed
+  pip:
+      name: virtualenv
+      state: present
+
+- name: ensure venv path exists
+  file:
+      path: '{{ venv_path }}'
+      owner: '{{ venv_user | default("root") }}'
+      group: '{{ venv_group | default("root") }}'
+      mode: 0755
+      state: directory
+
+- name: create venvs
+  become_user: '{{ venv_user | default("root") }}'
+  shell: 'virtualenv -p $(which python{{ venv_python_version | default(3) }}) {{ venv_path }}'
+  args:
+      creates: '{{ venv_path }}/bin/activate'
+
+

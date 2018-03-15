@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: nmaekawa
+  description: create python venv; install pip and virtualenv if needed
+  license: Apache2
+  min_ansible_version: 2.4
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 16.04
+  galaxy_tags:
+  - python
+  - virtualenv
+  - installer
+dependencies: []
+
