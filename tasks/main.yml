@@ -22,6 +22,8 @@
       mode: 0755
       state: directory
 
+  # TODO: update pip venv install:
+  # https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/
 - name: create venvs
   become_user: '{{ venv_user | default("root") }}'
   shell: 'virtualenv -p $(which python{{ venv_python_version | default(3) }}) {{ venv_path }}'
