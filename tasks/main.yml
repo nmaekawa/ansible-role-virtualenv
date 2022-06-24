@@ -6,7 +6,6 @@
       state: present
   vars:
       packages:
-          - python-pip
           - python3-pip
 
 - name: ensure virtualenv installed
